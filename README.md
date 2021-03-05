@@ -7,7 +7,7 @@ A basic blog made using express along with Mongo DB. In this app users can add a
 ## Features
 
 -   Addition and removal of blogs
--
+
 
 ## Tech Used
 
