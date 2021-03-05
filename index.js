@@ -6,18 +6,20 @@ const app = express();
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.use(express.static("./Static")); //Static files for the app
 
-app.use(express.static("./Static"));            //Static files for the app
+app.set("view engine", "ejs"); //Set EJS as view engine
 
-app.set("view engine", "ejs");                  //Set EJS as view engine
-
-app.set("views", "./Static/Views");             //Setting path for views
+app.set("views", "./Static/Views"); //Setting path for views
 
 //Routing
 app.get("/", (req, res) => {
     res.render("home", { title: "Blog Home" });
 });
 
+app.get("/about", (req, res) => {
+    res.render("about", { title: "About" });
+});
 
 //Setting the Port and Starting the Server
 const port = process.env.PORT;
