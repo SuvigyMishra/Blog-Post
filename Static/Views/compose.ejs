@@ -1,0 +1,19 @@
+<%- include('./Partials/header'); -%>
+
+<h2>Compose New Post</h2>
+
+<form action="/new-post" method="POST">
+    <input type="text" class="form-control" name="title" id="titleInput" placeholder="Title ..." required />
+    <textarea
+        name="content"
+        class="form-control"
+        id="contentInput"
+        cols="50"
+        rows="10"
+        placeholder="Write away ...."
+        required
+    ></textarea>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<%- include('./Partials/footer'); -%>

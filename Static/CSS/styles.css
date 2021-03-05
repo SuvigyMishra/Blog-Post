@@ -1,3 +1,53 @@
+/* Body */
+body {
+    background-color: #f9f7f7;
+}
+
+/* Header */
+
+nav {
+    background-color: #dbe2ef;
+}
+
+nav a {
+    color: #112d4e;
+}
+
+nav a:hover {
+    color: #2e8bc0;
+}
+
+.navbar-brand {
+    color: #112d4e;
+}
+
+/* Main Section */
+
 main {
     padding: 20px 15px;
+    margin: 0px 0px 50px;
+}
+
+/* Compose Section */
+#titleInput {
+    margin: 20px 0px 10px;
+    width: 40%;
+}
+
+#contentInput {
+    margin: 10px 0px;
+    display: block;
+    width: 80%;
+}
+
+/* Footer */
+
+footer {
+    background-color: #dbe2ef;
+    color: #112d4e;
+    padding: 10px 25px;
+    text-align: right;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
 }

@@ -12,14 +12,8 @@ app.set("view engine", "ejs"); //Set EJS as view engine
 
 app.set("views", "./Static/Views"); //Setting path for views
 
-//Routing
-app.get("/", (req, res) => {
-    res.render("home", { title: "Blog Home" });
-});
-
-app.get("/about", (req, res) => {
-    res.render("about", { title: "About" });
-});
+//Routing to routes file
+app.use("/", require("./Routes/routes"));
 
 //Setting the Port and Starting the Server
 const port = process.env.PORT;

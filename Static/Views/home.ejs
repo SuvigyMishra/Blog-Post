@@ -1,5 +1,12 @@
 <%- include('./Partials/header'); -%>
 
-<h1>Home Page</h1>
-
+<ul type="none">
+    <% for (let i of posts) {%>
+    <li>
+        <h1><%= i.title %></h1>
+        <p><%= i.createdAt.toDateString() %></p>
+        <p><%= i.content %></p>
+    </li>
+    <% } %>
+</ul>
 <%- include('./Partials/footer'); -%>

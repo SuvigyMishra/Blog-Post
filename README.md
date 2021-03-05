@@ -2,7 +2,7 @@
 
 ### _A Blog Web Applicaiton made using express and MongoDB_
 
-A basic blog made using express along with Mongo DB. Users can add and remove text blogs which will be stored in the data base. 
+A basic blog made using express along with Mongo DB. Users can add and remove text blogs which will be stored in the data base.
 
 ## Features
 
