@@ -55,8 +55,12 @@ main {
 
 footer {
     padding: 10px 25px;
-    text-align: right;
     bottom: 0;
     position: fixed;
     width: 100%;
+}
+
+footer form p {
+    margin: 3px;
+    float: right;
 }
