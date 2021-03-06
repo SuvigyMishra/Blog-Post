@@ -16,3 +16,5 @@ A basic blog made using express along with Mongo DB. Users can add and remove te
 -   Bootstrap
 -   **Mongoose** for MongoDB
 -   GitLens
+-   Ajax
+-   jQuery

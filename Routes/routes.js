@@ -29,4 +29,13 @@ router.post("/new-post", (req, res) => {
     return res.redirect("/");
 });
 
+router.post("/delete/:id", (req, res) => {
+    Post.deleteOne({ _id: req.params.id }, (err) => {
+        if (err) {
+            console.log("Error Deleting post", err);
+        }
+        return res.redirect("/");
+    });
+});
+
 module.exports = router;

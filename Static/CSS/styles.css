@@ -7,21 +7,36 @@ body {
 
 main {
     min-height: 640px;
-    padding: 30px;
-    margin: 0px 100px;
+    padding: 10px 30px;
+    margin: 0px 100px 30px;
 }
 
 .title {
     display: inline-block;
-    width: 30%;
+    width: 80%;
     margin: 0;
 }
 
 .createdAt {
     display: inline-block;
-    width: 69%;
+    width: 19%;
     margin: auto;
     text-align: right;
+}
+
+.horizontalRule {
+    margin: 5px 0px 10px;
+}
+
+.endSeprator {
+    margin: 30px auto;
+    border: 10px dotted rgb(66, 66, 66);
+    border-top: 0px;
+    width: 10%;
+}
+
+.deleteBtn {
+    float: right;
 }
 
 /* Compose Section */

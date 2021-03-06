@@ -7,7 +7,7 @@ mongoose.connect("mongodb://localhost/post_db", { useNewUrlParser: true, useUnif
 const db = mongoose.connection;
 db.on("error", (err) => {
     //If there is an error, Log it
-    console.log("err");
+    console.log("Error connecting to Data Base", err);
 });
 
 db.once("open", () => {
