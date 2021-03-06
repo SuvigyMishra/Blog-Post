@@ -5,7 +5,11 @@
     <% for (let i of posts) {%>
     <li id="<%- i.id%>">    
         <h3 class="title"><%= i.title %></h3>
-        <p class="createdAt"><%= i.createdAt.toDateString() %></p>
+        <p class="createdAt">
+            <% var day = ["Sonday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];%> 
+            <% var month = ["January","February","March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];%> 
+            <%= day[i.createdAt.getDay()] + ", " + i.createdAt.getDate() + " " + month[i.createdAt.getMonth()]%> 
+        </p>
         <hr class="horizontalRule" />
         <p class="content"><%= i.content %></p>
         <button value="<%- i.id%>" class="btn deleteBtn btn-danger">
@@ -15,14 +19,18 @@
     </li>
     <% } %>
 </ul>
+
 <%} else {%>
 <h2>Ooops.. Nothing to see here!</h2>
 
 <%} %> <%- include('./Partials/footer'); -%>
 
+
+<!-- Scripts for jquery and delete btn  -->
 <script
     src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
     crossorigin="anonymous"
 ></script>
+
 <script src="../JS/btn.js"></script>
