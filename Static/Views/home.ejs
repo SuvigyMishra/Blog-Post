@@ -1,12 +1,17 @@
-<%- include('./Partials/header'); -%>
+<%- include('./Partials/header'); -%> 
 
+<% if (posts.length != 0) {%>
 <ul type="none">
     <% for (let i of posts) {%>
     <li>
-        <h1><%= i.title %></h1>
-        <p><%= i.createdAt.toDateString() %></p>
-        <p><%= i.content %></p>
+        <h2 class="title"><%= i.title %></h2>
+        <p class="createdAt"><%= i.createdAt.toDateString() %></p>
+        <p class="content"><%= i.content %></p>
     </li>
     <% } %>
 </ul>
+<%} else {%> 
+    <h2>Ooops.. Nothing to see here!</h2>
+<%} %> 
 <%- include('./Partials/footer'); -%>
+
