@@ -38,12 +38,14 @@ router.post("/delete/:id", (req, res) => {
     });
 });
 
-router.get("/signin", (req, res) => {
+router.route("/signin").get((req, res) => {
     return res.render("signin", { title: "Sign In" });
 });
+// .post();
 
-router.get("/signup", (req, res) => {
+router.route("/signup").get((req, res) => {
     return res.render("signup", { title: "Sign Up" });
 });
+// .post();
 
 module.exports = router;

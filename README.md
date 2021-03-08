@@ -1,8 +1,8 @@
-# Blog-Post
+# Blog Post
 
-### _A Blog Web Applicaiton made using express and MongoDB_
+### _A Blog Website made using express and MongoDB_
 
-A basic blog made using express along with Mongo DB. Users can add and remove text blogs which will be stored in the data base.
+A simple blogging website template made using Express.Js and mongoDB to store data. An user can sign in to create and delete posts which can be viewed by other users. Posts can neither be created nor be destroyed without user credentials.
 
 ## Features
 
