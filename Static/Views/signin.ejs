@@ -1,0 +1,27 @@
+<%- include('./Partials/header'); -%>
+
+<div class="login-form">
+    <form action="/examples/actions/confirmation.php" method="post">
+        <h2>Log in</h2>
+        <p>Log in to access your account!</p>
+        <hr />
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Username" required="required" autocomplete="off" />
+        </div>
+        <div class="form-group mb-4">
+            <input type="password" class="form-control" placeholder="Password" required="required" autocomplete="off" />
+        </div>
+        <div class="form-group mb-4">
+            <button type="submit" class="btn btn-primary">Log in</button>
+        </div>
+        <div class="clearfix mb-4">
+            <label class="form-check-label"><input type="checkbox" /> Remember me</label>
+            <a href="#" class="float-right">Forgot Password?</a>
+        </div>
+    </form>
+    <p class="text-center">
+        <a href="/signup">Create an Account</a>
+    </p>
+</div>
+
+<%- include('./Partials/footer'); -%>

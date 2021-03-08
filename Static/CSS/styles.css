@@ -68,3 +68,18 @@ footer form p {
     margin: 3px;
     float: right;
 }
+
+/* Sign In */
+
+.login-form {
+    width: 340px;
+    margin: 50px auto;
+    font-size: 15px;
+}
+
+/* Sign Up */
+
+.signup-form {
+    width: 400px;
+    margin: 30px auto;
+}
