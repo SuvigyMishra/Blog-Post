@@ -1,4 +1,7 @@
-//Blog Post app made using express
+//Setting Env
+require("dotenv").config();
+
+//using express
 const express = require("express");
 const app = express();
 

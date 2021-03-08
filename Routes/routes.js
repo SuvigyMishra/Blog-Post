@@ -45,7 +45,15 @@ router
         return res.render("signin", { title: "Sign In" });
     })
     .post((req, res) => {
-        //TODO: Sign in User
+        User.findOne({ email: req.body.email }, (err, foundUser) => {
+            if (err) {
+                console.log(err);
+            } else {
+                if (foundUser.password === req.body.password) {
+                    return res.redirect("/");
+                }
+            }
+        });
     });
 
 router
@@ -54,8 +62,22 @@ router
         return res.render("signup", { title: "Sign Up" });
     })
     .post((req, res) => {
-        if (req.body.password == req.body.confirm_password) {
-           // TODO: Sign Up User
+        if (req.body.password === req.body.confirm_password) {
+            User.create(
+                {
+                    fname: req.body.fname,
+                    lname: req.body.lname,
+                    email: req.body.email,
+                    password: req.body.password,
+                },
+                (err) => {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        res.redirect("/signin");
+                    }
+                }
+            );
         }
     });
 

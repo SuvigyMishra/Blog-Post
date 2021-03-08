@@ -1,7 +1,11 @@
 const mongoose = require("mongoose");
 
 //Connecting to database
-mongoose.connect("mongodb://localhost/blog_db", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb://localhost/blog_db", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+});
 
 //Connect to server and make sure it is working
 mongoose.connection.on("error", (err) => {

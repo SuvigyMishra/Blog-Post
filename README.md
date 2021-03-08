@@ -8,6 +8,9 @@ A simple blogging website template made using Express.Js and mongoDB to store da
 
 -   Addition and removal of blogs
 -   Store Blogs permanently in a database
+-   Sign In/Sign Up
+-   Password Encryption/Decryption
+-   User Authentication
 
 ## Tech Used
 
@@ -15,6 +18,8 @@ A simple blogging website template made using Express.Js and mongoDB to store da
 -   EJS
 -   Bootstrap
 -   **Mongoose** for MongoDB
+-   mongoose-encryption
 -   GitLens
 -   Ajax
 -   jQuery
+-   dotenv
