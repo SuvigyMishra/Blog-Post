@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const Post = require("../Database/postsDB.js");
+const Post = require("../Database/postsDB");
+const User = require("../Database/userDB");
 
 router.get("/", (req, res) => {
     Post.find({}, (err, posts) => {
@@ -38,14 +39,24 @@ router.post("/delete/:id", (req, res) => {
     });
 });
 
-router.route("/signin").get((req, res) => {
-    return res.render("signin", { title: "Sign In" });
-});
-// .post();
+router
+    .route("/signin")
+    .get((req, res) => {
+        return res.render("signin", { title: "Sign In" });
+    })
+    .post((req, res) => {
+        //TODO: Sign in User
+    });
 
-router.route("/signup").get((req, res) => {
-    return res.render("signup", { title: "Sign Up" });
-});
-// .post();
+router
+    .route("/signup")
+    .get((req, res) => {
+        return res.render("signup", { title: "Sign Up" });
+    })
+    .post((req, res) => {
+        if (req.body.password == req.body.confirm_password) {
+           // TODO: Sign Up User
+        }
+    });
 
 module.exports = router;
