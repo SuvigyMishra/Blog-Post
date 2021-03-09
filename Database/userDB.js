@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const encrypt = require("mongoose-encryption");
+const passport = require("passport");
+const passportLocalMongoose = require("passport-local-mongoose");
 
 //Connecting to database
 mongoose.connect("mongodb://localhost/blog_db", {
@@ -40,9 +41,12 @@ const userSchema = new mongoose.Schema({
     },
 });
 
-//Encrypting passwords so that they are not stored as plain texts
-userSchema.plugin(encrypt, { secret: process.env.KEY, encryptedFields: ["password"] });
+userSchema.plugin(passportLocalMongoose);
 
 const User = mongoose.model("User", userSchema);
+
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 module.exports = User;

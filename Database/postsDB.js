@@ -21,7 +21,7 @@ mongoose.connection.once("open", () => {
 //Post Schema
 const postSchema = new mongoose.Schema(
     {
-        title: {
+        postTitle: {
             type: String,
             required: true,
         },

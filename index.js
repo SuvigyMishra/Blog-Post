@@ -1,19 +1,30 @@
-//Setting Env
+//Setting Env and other dependencies
 require("dotenv").config();
-
-//using express
 const express = require("express");
 const app = express();
+const session = require("express-session");
+const passport = require("passport");
 
 //Body Parser
-const bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 
 app.use(express.static("./Static")); //Static files for the app
 
 app.set("view engine", "ejs"); //Set EJS as view engine
 
 app.set("views", "./Static/Views"); //Setting path for views
+
+//Creating a session
+app.use(
+    session({
+        secret: process.env.KEY,
+        saveUninitialized: false,
+        resave: false,
+    })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 //Routing to routes file
 app.use("/", require("./Routes/routes"));

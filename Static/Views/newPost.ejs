@@ -2,8 +2,18 @@
 
 <h2>Compose New Post</h2>
 
+<%- include('./Partials/messages.ejs'); -%>
+
 <form action="/new-post" method="POST">
-    <input type="text" class="form-control" name="title" id="titleInput" placeholder="Title ..." required />
+    <input
+        type="text"
+        class="form-control"
+        name="postTitle"
+        id="titleInput"
+        placeholder="Title ..."
+        value="<%= typeof postTitle != 'undefined' ? postTitle : '' %>"
+        required
+    />
     <textarea
         name="content"
         class="form-control"
@@ -11,6 +21,7 @@
         cols="50"
         rows="10"
         placeholder="Write away ...."
+        value="<%= typeof content != 'undefined' ? content : '' %>"
         required
     ></textarea>
     <button type="submit" class="btn btn-primary">Submit</button>
