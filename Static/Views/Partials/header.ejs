@@ -38,7 +38,11 @@
                         <a class="nav-link text-light" href="/">Home</a>
                     </li>
                     <li class="nav-item">
+                        <% if (typeof user != "undefined") {%>
+                        <a class="nav-link text-light"><%= user.fname + " " + user.lname %></a>
+                        <% } else { %>
                         <a class="nav-link text-light" href="/signin">Sign In</a>
+                        <% } %>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-light" href="/about">About</a>
@@ -47,4 +51,4 @@
             </div>
         </nav>
 
-    <main class="bg-light">
+        <main class="bg-light">

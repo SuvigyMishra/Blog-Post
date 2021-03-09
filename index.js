@@ -5,6 +5,10 @@ const app = express();
 const session = require("express-session");
 const passport = require("passport");
 
+require("./Config/passport")(passport);
+
+const db = require("./Config/mongoose");
+
 //Body Parser
 app.use(express.urlencoded({ extended: false }));
 
@@ -23,6 +27,7 @@ app.use(
     })
 );
 
+//Passport middleware
 app.use(passport.initialize());
 app.use(passport.session());
 

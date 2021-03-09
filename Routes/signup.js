@@ -4,7 +4,7 @@ const router = express.Router();
 const User = require("../Database/userDB");
 
 router
-    .route("/signup")
+    .route("/")
     .get((req, res) => {
         return res.render("signup", { title: "Sign Up" });
     })
@@ -14,10 +14,6 @@ router
 
         if (password !== confirm_password) {
             errors.push({ msg: "Passwords do not match" });
-        }
-
-        if (password.length < 6) {
-            errors.push({ msg: "Password must be at least 6 characters" });
         }
 
         if (errors.length > 0) {
@@ -50,9 +46,11 @@ router
                         email,
                         password,
                     });
+
+                    return res.render("signin", { title: "Sign In" });
                 }
             });
         }
     });
-    
+
 module.exports = router;

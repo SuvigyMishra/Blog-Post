@@ -1,38 +1,19 @@
 const express = require("express");
 const router = express.Router();
+const passport = require("passport");
 
 const User = require("../Database/userDB");
 
 router
-    .route("/signin")
+    .route("/")
     .get((req, res) => {
         return res.render("signin", { title: "Sign In" });
     })
-    .post((req, res) => {
-        const { email, password } = req.body;
-        let errors = [];
-        User.findOne({ email: req.body.email }, (err, foundUser) => {
-            if (!foundUser) {
-                errors.push({ msg: "User not found!" });
-                res.render("signin", {
-                    title: "Sign In",
-                    errors,
-                    email,
-                    password,
-                });
-            } else {
-                if (foundUser.password !== password) {
-                    errors.push({ msg: "Password incorrect!" });
-                    res.render("signin", {
-                        title: "Sign In",
-                        errors,
-                        email,
-                    });
-                } else {
-                    res.redirect("/");
-                }
-            }
-        });
+    .post((req, res, next) => {
+        passport.authenticate("local", {
+            successRedirect: "/",
+            failureRedirect: "/signin",
+        })(req, res, next);
     });
 
 module.exports = router;

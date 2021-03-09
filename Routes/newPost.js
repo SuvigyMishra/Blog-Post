@@ -3,11 +3,11 @@ const router = express.Router();
 
 const Post = require("../Database/postsDB");
 
-router.get("/new-post", (req, res) => {
+router.get("/", (req, res) => {
     return res.render("newPost", { title: "Compose New Post" });
 });
 
-router.post("/new-post", (req, res) => {
+router.post("/", (req, res) => {
     const { postTitle, content } = req.body;
 
     let errors = [];

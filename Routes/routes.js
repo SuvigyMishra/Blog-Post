@@ -1,8 +1,8 @@
 const express = require("express");
+const { user } = require("../Config/mongoose");
 const router = express.Router();
 
 const Post = require("../Database/postsDB");
-const User = require("../Database/userDB");
 
 router.get("/", (req, res) => {
     Post.find({}, (err, posts) => {
@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
             console.log("Error finding posts", err);
         }
 
-        return res.render("home", { title: "Blog Home", posts: posts });
+        return res.render("home", { title: "Blog Home", posts: posts, user: req.user });
     });
 });
 
@@ -27,13 +27,10 @@ router.post("/delete/:id", (req, res) => {
     });
 });
 
-router.get("/new-post", require("./newPost"));
-router.post("/new-post", require("./newPost"));
+router.use("/new-post", require("./newPost"));
 
-router.get("/signin", require("./signin"));
-router.post("/signin", require("./signin"));
+router.use("/signin", require("./signin"));
 
-router.get("/signup", require("./signup"));
-router.post("/signup", require("./signup"));
+router.use("/signup", require("./signup"));
 
 module.exports = router;
