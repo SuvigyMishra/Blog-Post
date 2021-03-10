@@ -12,8 +12,9 @@
         <hr class="horizontalRule" />
         <p class="content"><%= i.content %></p>
         <hr class="horizontalRule" />
-
+        <% if (typeof name != "undefined") {%>
         <button value="<%- i.id%>" class="btn deleteBtn btn-danger">Delete</button>
+        <% } %> 
         <hr class="endSeprator" />
     </li>
     <% } %>

@@ -6,14 +6,13 @@ module.exports = (passport) => {
     passport.use(
         new LocalStratergy({ usernameField: "email" }, (email, password, done) => {
             User.findOne({ email: email }).then((user) => {
-                if (!User) {
-                    return done(null, false, { message: "The user does not exist!" });
+                if (!user) {
+                    return done(null, false);
                 }
-
                 if (password === user.password) {
                     return done(null, user);
                 } else {
-                    return done(null, false, { message: "Password does not match!" });
+                    return done(null, false);
                 }
             });
         })
